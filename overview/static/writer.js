@@ -1,0 +1,138 @@
+const writerCatalog={};
+function providerName(provider){return {local:'Ollama',gemini:'Google Gemini',openrouter:'OpenRouter',groq:'GroqCloud'}[provider]||provider}
+let defaultLocalModel='qwen3:14b';
+let quickModelChoice=null;
+function localModelLabel(raw=defaultLocalModel){const names={'qwen3:14b':'Qwen 3 14B','qwen3.5:9b':'Qwen 3.5 9B','gemma4:12b':'Gemma 4 12B','qwen2.5:1.5b':'Qwen 2.5 1.5B','qwen2.5:3b':'Qwen 2.5 3B'};return (names[raw]||raw)+' · Ollama'}
+// app.js builds the initial form before studio.js loads its full catalog.
+let studioCatalog={vozes:[],locucoes:[],animacoes:[]};
+function modelPicker(prefix,s){return `<div class="model-picker"><select hidden aria-hidden="true" tabindex="-1" id="${prefix}-roteiro_modelo"><option value="${esc(s.roteiro_modelo||'')}">${esc(s.roteiro_modelo||'')}</option></select><button type="button" class="model-trigger" data-picker="${prefix}" id="${prefix}-model-trigger" aria-haspopup="listbox" aria-expanded="false" aria-controls="${prefix}-model-menu"><span><b>${esc(s.roteiro_modelo||(s.roteiro_provedor&&s.roteiro_provedor!=='local'?'Escolha um modelo':'Modelo local instalado'))}</b><small>Veja especialidades e escolha para seu roteiro</small></span><span aria-hidden="true">⌄</span></button><div class="model-menu" id="${prefix}-model-menu" hidden><input class="model-search" type="search" placeholder="Buscar modelo ou especialidade" aria-label="Buscar modelo do roteiro"><div role="listbox" aria-label="Modelos disponíveis" class="model-options"></div></div></div>`}
+function closeModelPickers(){document.querySelectorAll('.model-menu').forEach(menu=>menu.hidden=true);document.querySelectorAll('[data-picker]').forEach(b=>b.setAttribute('aria-expanded','false'))}
+function paintModel(prefix){const select=$(prefix+'-roteiro_modelo'),model=(writerCatalog[prefix]||[]).find(m=>m.id===select.value),trigger=$(prefix+'-model-trigger'),box=$(prefix+'-model-description');trigger.innerHTML=`<span><b>${esc(model?.nome||select.value||($(prefix+'-roteiro_provedor').value==='local'?'Modelo local instalado':'Escolha um modelo'))}</b><small>${esc(model?.especialidade||'Veja especialidades e escolha para seu roteiro')}</small></span><span aria-hidden="true">⌄</span>`;box.hidden=!model;if(model)box.innerHTML=`<strong>${esc(model.especialidade)}</strong><p>${esc(model.uso_no_roteiro)}</p><small>${model.local?'Processamento local · sem cobrança de API':model.plano_gratuito?'Plano Free · sujeito às cotas da Groq':model.gratuito===true?'Preço da API: zero · sujeito a cotas':model.gratuito===null?'Cota e preço dependem da sua conta':''}${model.contexto_tokens?' · Contexto informado: '+Number(model.contexto_tokens).toLocaleString('pt-BR')+' tokens':''}</small><p class="small">${esc(model.observacao)}</p>${model.descricao_catalogo?`<details><summary>Descrição do provedor · idioma original</summary><p class="small">${esc(model.descricao_catalogo)}</p></details>`:''}${model.fonte_descricao?`<a href="${esc(model.fonte_descricao)}" target="_blank" rel="noreferrer">Sobre este modelo ↗</a>`:''}`;updateGeminiProject(prefix)}
+function drawModelOptions(prefix,query=''){const menu=$(prefix+'-model-menu'),selected=$(prefix+'-roteiro_modelo').value,options=menu.querySelector('.model-options');const filter=query.toLocaleLowerCase('pt-BR');const matches=(writerCatalog[prefix]||[]).filter(m=>(m.nome+' '+m.id+' '+m.especialidade).toLocaleLowerCase('pt-BR').includes(filter));options.innerHTML=matches.map(m=>`<button type="button" role="option" aria-selected="${m.id===selected}" data-model="${esc(m.id)}"><span class="model-check">${m.id===selected?'✓':''}</span><span><b>${esc(m.nome)}</b><small>${esc(m.especialidade)}</small></span>${m.plano_gratuito?'<em>Plano Free</em>':m.gratuito===true?'<em>Grátis</em>':m.id.includes('preview')?'<em>Prévia</em>':''}</button>`).join('')||'<p>Nenhum modelo corresponde à busca.</p>';options.querySelectorAll('[data-model]').forEach(b=>b.onclick=()=>{if(prefix==='create')quickModelChoice=null;$(prefix+'-roteiro_modelo').value=b.dataset.model;paintModel(prefix);closeModelPickers();$(prefix+'-model-trigger').focus()})}
+function positionWriterPicker(prefix){const menu=$(prefix+'-model-menu'),trigger=$(prefix+'-model-trigger');if(menu.hidden)return false;const bounds=trigger.getBoundingClientRect();if(bounds.bottom<0||bounds.top>innerHeight)return false;const rect=trigger.getBoundingClientRect();const width=Math.min(Math.max(rect.width,320),Math.min(500,innerWidth-32));let left=rect.left;if(left+width>innerWidth-16)left=Math.max(16,innerWidth-width-16);if(left<16)left=16;menu.style.width=width+'px';menu.style.left=left+'px';const spaceBelow=innerHeight-rect.bottom-12,spaceAbove=rect.top-12;const height=Math.min(380,Math.max(spaceBelow,spaceAbove)-15);menu.style.maxHeight=Math.max(160,height)+'px';if(spaceBelow>=Math.min(260,height)){menu.style.top=(rect.bottom+6)+'px';menu.style.bottom='auto'}else{menu.style.top='auto';menu.style.bottom=(innerHeight-rect.top+6)+'px'}return true}
+async function toggleModelPicker(prefix,keyboard=false){const menu=$(prefix+'-model-menu'),trigger=$(prefix+'-model-trigger');if(!menu.hidden){closeModelPickers();return}if(!(writerCatalog[prefix]||[]).length)await loadWriterModels(prefix);closeModelPickers();drawModelOptions(prefix);const search=menu.querySelector('input');search.value='';search.oninput=()=>drawModelOptions(prefix,search.value);if(menu.parentElement!==document.body)document.body.appendChild(menu);menu.hidden=false;trigger.setAttribute('aria-expanded','true');positionWriterPicker(prefix);menu.onkeydown=e=>{if(e.key==='Escape'){closeModelPickers();trigger.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();const items=Array.from(menu.querySelectorAll('[role=option]'));let i=items.indexOf(document.activeElement);i=e.key==='ArrowDown'?(i+1)%items.length:(i-1+items.length)%items.length;items[i]?.focus()}};if(keyboard)menu.querySelector('[role=option]')?.focus({preventScroll:true});else search.focus({preventScroll:true})}
+document.addEventListener('click',e=>{if(!e.target.closest('.model-picker')&&!e.target.closest('.model-menu')&&!e.target.closest('.local-model-control'))closeModelPickers()});
+window.addEventListener('resize',closeModelPickers);
+// Scroll is captured from descendants too: browsing the catalogue must keep it open.
+window.addEventListener('scroll',e=>{
+ if(e.target instanceof Element&&e.target.closest('.model-menu'))return;
+ if(window.positionQuickModel?.())return;
+ if(['create','edit'].some(prefix=>$(prefix+'-model-menu')&&positionWriterPicker(prefix)))return;
+ closeModelPickers();
+},true);
+// Explicit provider scope. No key is stored in the page or browser storage.
+function stageName(stage){if(current?.config?.tipo_roteiro==='motivacional')return ({introducao:'Abertura',explicacao:'Mensagem',exemplo:'Exemplo',autoavaliacao:'Reflexão',conclusao:'Fechamento',aula_curta:'Mensagem completa'})[stage]||'Mensagem';return ({introducao:'Introdução',explicacao:'Explicação',exemplo:'Exemplo guiado',autoavaliacao:'Autoavaliação',conclusao:'Conclusão',aula_curta:'Aula curta'})[stage]||'Explicação'}
+let geminiVoiceRevision=0;
+function geminiEnabled(prefix){return $(prefix+'-roteiro_provedor')?.value==='gemini'&&!!$(prefix+'-gemini_projeto_completo')?.checked}
+function geminiProjectConfig(prefix){return {roteiro_provedor:$(prefix+'-roteiro_provedor').value,roteiro_modelo:$(prefix+'-roteiro_modelo').value,gemini_projeto_completo:geminiEnabled(prefix),gemini_modelo_voz:$(prefix+'-gemini_modelo_voz').value,gemini_voz:$(prefix+'-gemini_voz').value,gemini_voz_secundaria:$(prefix+'-gemini_voz_secundaria').value}}
+function geminiProjectFields(prefix,s){
+ const voices=studioCatalog.gemini_vozes||['Kore','Puck'];
+ const models=studioCatalog.gemini_modelos_voz||['gemini-3.8-flash-lite-tts'];
+ const voice=(field,label,selected)=>`<label>${label}<select id="${prefix}-${field}">${voices.map(v=>`<option ${v===selected?'selected':''}>${esc(v)}</option>`).join('')}</select></label>`;
+ return `<fieldset class="gemini-project" id="${prefix}-gemini-project" ${s.roteiro_provedor==='gemini'?'':'hidden'}><legend>Gemini no restante do projeto</legend><label class="check-row"><input type="checkbox" id="${prefix}-gemini_projeto_completo" ${s.gemini_projeto_completo?'checked':''}>Usar Gemini em todas as etapas de IA · sem Ollama</label><p class="small">Desmarcado: mantém o modo atual, com Gemini no roteiro. Marcado: estudo das fontes, OCR, checagens, planejamento das animações e narração usam a API do Gemini, sem carregar modelos locais de IA.</p><div id="${prefix}-gemini-details" ${s.gemini_projeto_completo?'':'hidden'}><p class="small">Textos e imagens necessários ao processamento são enviados ao Google; há consumo da cota e possíveis cobranças de texto e voz. Leitura dos arquivos, desenho das animações, mixagem e montagem do MP4 continuam neste computador. Este modo dispensa Ollama, Kokoro e Piper; não é renderização remota do MP4.</p><div class="config-fields"><label>Modelo de voz Gemini<select id="${prefix}-gemini_modelo_voz">${models.map(m=>`<option value="${esc(m)}" ${m===(s.gemini_modelo_voz||'gemini-3.8-flash-lite-tts')?'selected':''}>${esc(m)}</option>`).join('')}</select></label>${voice('gemini_voz','Voz Gemini',s.gemini_voz||'Kore')}${voice('gemini_voz_secundaria','Segunda voz Gemini · se usar duas vozes',s.gemini_voz_secundaria||'Puck')}</div><div class="music-actions"><button type="button" class="secondary" data-gemini-models="${prefix}">Conferir modelos de voz</button><button type="button" class="secondary" data-gemini-sample="${prefix}">▷ Ouvir voz Gemini · usa API</button></div><audio id="${prefix}-gemini-audio" controls hidden preload="none"></audio><p class="small" id="${prefix}-gemini-status" role="status"></p></div></fieldset>`
+}
+function updateGeminiProject(prefix){
+ const provider=$(prefix+'-roteiro_provedor').value,on=geminiEnabled(prefix);
+ $(prefix+'-gemini-test-area').hidden=provider!=='gemini';$(prefix+'-gemini-project').hidden=provider!=='gemini';$(prefix+'-gemini-details').hidden=!on;
+ if($(prefix+'-voz'))$(prefix+'-voz').closest('label').hidden=on;
+ if($(prefix+'-second-voice'))$(prefix+'-second-voice').hidden=on||$(prefix+'-apresentadores').value!=='2';
+ const note=$(prefix+'-voice-note');if(note&&!on){const v=studioCatalog.vozes.find(v=>v.id===$(prefix+'-voz').value);note.textContent=v?v.descricao.replace(/[.!?]$/,'')+'. Ouça e compare.':''}if(note&&on)note.textContent='Narração pela API Gemini · '+$(prefix+'-gemini_voz').value+'. Escolha e teste a voz nas opções do Gemini abaixo.';
+ const activePrefix=current?'edit':'create';
+ if(prefix===activePrefix){
+  const model=provider==='local'?($(prefix+'-roteiro_modelo').value||defaultLocalModel):defaultLocalModel;
+  const badge=$('local-model-name');if(badge)badge.textContent=on?'Gemini · IA na nuvem':localModelLabel(model);
+  if($('settings-local-model'))$('settings-local-model').textContent=localModelLabel(model);
+  if($('local-model-badge'))$('local-model-badge').title=on?'IA pelo Gemini':'Modelo local selecionado: '+model;
+  if(window.paintQuickModel)window.paintQuickModel();
+  const privacy=document.querySelector('.privacy');
+  const onlineVoice=studioCatalog.vozes.some(v=>v.online&&(v.id===$(prefix+'-voz').value||($(prefix+'-apresentadores').value==='2'&&v.id===$(prefix+'-voz_secundaria')?.value)));
+  if(privacy)privacy.textContent=on?'◉ IA pelo Gemini · MP4 neste computador':onlineVoice?'◉ Voz Microsoft online · MP4 neste computador':'◉ Processamento local';
+  const voiceLabel=$('settings-voice-name'),selected=studioCatalog.vozes.find(v=>v.id===$(prefix+'-voz').value);
+  if(voiceLabel)voiceLabel.textContent=on?'Gemini · online':selected?selected.nome+' · '+selected.motor:'Escolha uma voz';
+ }
+}
+function bindGeminiProject(prefix){
+ if(!$(prefix+'-gemini_projeto_completo'))return;
+ $(prefix+'-gemini_projeto_completo').onchange=()=>{geminiVoiceRevision++;writerNote(prefix);if(typeof stopMusic==='function')stopMusic();$(prefix+'-gemini-audio').pause()};
+ for(const key of ['gemini_modelo_voz','gemini_voz','gemini_voz_secundaria'])$(prefix+'-'+key).onchange=()=>{geminiVoiceRevision++;updateGeminiProject(prefix);if(typeof stopMusic==='function')stopMusic();$(prefix+'-gemini-audio').pause()};
+ document.querySelector(`[data-gemini-models="${prefix}"]`).onclick=()=>action(async()=>{
+  const data=await api('/api/gemini/voz/modelos'),select=$(prefix+'-gemini_modelo_voz'),selected=select.value;
+  select.innerHTML=(data.modelos.some(m=>m.id===selected)?'':`<option value="${esc(selected)}">${esc(selected)} · indisponível no catálogo</option>`)+data.modelos.map(m=>`<option value="${esc(m.id)}">${esc(m.nome)}</option>`).join('');select.value=selected;
+  $(prefix+'-gemini-status').textContent=data.modelos.length+' modelos de voz disponíveis. Nenhum áudio foi gerado nesta consulta.';
+ });
+ document.querySelector(`[data-gemini-sample="${prefix}"]`).onclick=()=>action(async()=>{
+  const b=document.querySelector(`[data-gemini-sample="${prefix}"]`),player=$(prefix+'-gemini-audio'),revision=++geminiVoiceRevision;b.disabled=true;
+  try{if(audio)audio.pause();if(typeof stopMusic==='function')stopMusic();$(prefix+'-gemini-status').textContent='Gerando amostra pela API Gemini…';const result=await api('/api/gemini/voz/preview',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...geminiProjectConfig(prefix),velocidade:Number($(prefix+'-velocidade').value),estilo_locucao:$(prefix+'-estilo_locucao').value})});if(revision!==geminiVoiceRevision||!geminiEnabled(prefix))return;player.src=result.url;player.hidden=false;await player.play();$(prefix+'-gemini-status').textContent='Amostra pronta pela API Gemini.'}catch(e){$(prefix+'-gemini-status').textContent='Não foi possível gerar a amostra. Confira a mensagem de erro e tente novamente.';throw e}finally{b.disabled=false}
+ });
+ document.querySelector(`[data-gemini-test="${prefix}"]`).onclick=()=>action(async()=>{
+  const model=$(prefix+'-roteiro_modelo').value;if(!model)throw Error('Escolha o modelo do roteiro para testar.');
+  const button=document.querySelector(`[data-gemini-test="${prefix}"]`),box=$(prefix+'-gemini-test-status');button.disabled=true;box.textContent='Conferindo uma resposta curta do modelo…';
+  try{const result=await api('/api/roteiro/gemini/testar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({modelo:model})});box.textContent=result.modelo+' · '+result.mensagem+' ('+result.tempo_s+' s)'}catch(e){box.textContent='O teste não foi concluído. '+e.message;throw e}finally{button.disabled=false}
+ });
+ updateGeminiProject(prefix);
+}
+
+function writerFields(prefix,s){
+ const provider=s.roteiro_provedor||'local';
+ const options=[['local','Local · gratuito'],['gemini','Gemini · sua chave'],['openrouter','OpenRouter · modelos gratuitos'],['groq','GroqCloud · plano gratuito']];
+ return `<div class="writer-settings"><h3>O coração do vídeo: o roteiro</h3><div class="config-fields"><label>Público<select id="${prefix}-publico"><option value="iniciante" ${s.publico!=='intermediário'?'selected':''}>Iniciante · comece do zero</option><option value="intermediário" ${s.publico==='intermediário'?'selected':''}>Já conhece o básico</option></select></label><label>Escrever com<select id="${prefix}-roteiro_provedor">${options.map(([v,n])=>`<option value="${v}" ${provider===v?'selected':''}>${n}</option>`).join('')}</select></label><label class="writer-goal">O que a pessoa deve aprender? <span class="optional">opcional</span><input id="${prefix}-objetivo_aprendizagem" value="${esc(s.objetivo_aprendizagem||'')}" maxlength="250" placeholder="Ex.: entender o conceito e conseguir explicar um exemplo"></label><div class="writer-goal model-field"><span class="field-label">Modelo do roteiro</span><div class="voice-row">${modelPicker(prefix,s)}<button type="button" class="secondary" data-models="${prefix}">Atualizar modelos</button></div><div id="${prefix}-model-description" class="model-description" hidden></div></div></div><p class="small" id="${prefix}-provider-note"></p><div id="${prefix}-gemini-test-area" ${provider==='gemini'?'':'hidden'}><button type="button" class="secondary" data-gemini-test="${prefix}">Testar resposta do modelo · chamada curta à API</button><p class="small" id="${prefix}-gemini-test-status" role="status">O catálogo mostra os modelos existentes; o teste confere se o escolhido responde com sua chave. <a href="https://aistudio.google.com/rate-limit?timeRange=last-28-days" target="_blank" rel="noreferrer">Ver limites reais no AI Studio ↗</a></p></div>${geminiProjectFields(prefix,s)}<input type="hidden" id="${prefix}-youtube-ia" value="${esc(JSON.stringify(s.youtube_ia||{}))}">${stageAIFields(prefix+'-plan',s.planejamento_ia,'Usar uma IA específica para planejar o vídeo','Na próxima geração do roteiro, escolha quem organiza o objetivo, a sequência dos conceitos, o exemplo e a conclusão. A escrita e a revisão continuam com a IA do roteiro.')}<label class="check-row"><input type="checkbox" id="${prefix}-ajustar_duracao" ${s.ajustar_duracao!==false?'checked':''}>Medir com a voz escolhida e ajustar o roteiro ao tempo</label><div class="research-options"><label class="check-row"><input type="checkbox" id="${prefix}-pesquisa_externa" ${s.pesquisa_externa?'checked':''}>Conferir com fontes externas</label><p class="small">Na geração do roteiro, pesquisa afirmações centrais, prioriza fontes originais/institucionais e mostra os trechos encontrados. Requer internet e envia consultas aos buscadores. Resultados inconclusivos ficam sinalizados; não é uma checagem de cada frase.</p><label class="check-row"><input type="checkbox" id="${prefix}-retratos_autores" ${s.retratos_autores?'checked':''} ${!s.pesquisa_externa?'disabled':''}>Incluir retratos identificados, com licença e crédito</label></div><p class="small">Estudo → plano da aula → escrita → revisão → conclusão. A pergunta de revisão inclui tempo para pensar. A medição prepara a narração antes de finalizar o roteiro.</p></div>`
+}
+function writerNote(prefix){const provider=$(prefix+'-roteiro_provedor').value;$(prefix+'-provider-note').textContent=provider==='local'?'Roteiro, voz e vídeo processados nesta máquina.':provider==='gemini'?(geminiEnabled(prefix)?'Gemini em todas as etapas de IA: estudo, checagens, planejamento visual e narração. Sem Ollama ou modelos locais de voz.':'Somente planejamento, escrita e revisão do roteiro usam o Gemini. Os trechos de estudo são enviados à Google. Cotas e possíveis cobranças dependem da sua conta; o catálogo não informa gratuidade.'):provider==='groq'?'GroqCloud no planejamento, escrita e revisão do roteiro. Use chave de uma organização no plano Free da Groq; há cotas por modelo. O catálogo não informa o plano da chave e uma organização paga pode gerar cobrança. Voz e montagem do vídeo continuam neste computador.':'Somente o roteiro usa a API. Lista atual de modelos com preço de entrada e saída zero, sujeita a cotas. Os trechos de estudo são enviados ao OpenRouter e ao provedor do modelo.';updateGeminiProject(prefix)}
+async function loadWriterModels(prefix){
+ const provider=$(prefix+'-roteiro_provedor').value,select=$(prefix+'-roteiro_modelo'),previous=select.value;
+ const trigger=$(prefix+'-model-trigger');trigger.disabled=true;
+ try{const data=await api('/api/roteiro/modelos/'+provider);writerCatalog[prefix]=data.modelos;select.innerHTML=(provider==='local'?'':'<option value="">Escolha um modelo</option>')+data.modelos.map(m=>`<option value="${esc(m.id)}">${esc(m.nome)}</option>`).join('');if(data.modelos.some(m=>m.id===previous))select.value=previous;if(!data.modelos.length)select.innerHTML='<option value="">Nenhum modelo disponível agora</option>';paintModel(prefix)}
+ finally{trigger.disabled=prefix==='edit'&&current&&['fila','roteirizando','renderizando','importando'].includes(current.status.status)}
+}
+function writerBind(){for(const prefix of ['create','edit']){bindGeminiProject(prefix);bindStageAI(prefix+'-plan');if($(prefix+'-pesquisa_externa'))$(prefix+'-pesquisa_externa').onchange=()=>{$(prefix+'-retratos_autores').disabled=!$(prefix+'-pesquisa_externa').checked}}document.querySelectorAll('[data-picker]:not([data-picker=quick])').forEach(b=>{b.onclick=()=>action(()=>toggleModelPicker(b.dataset.picker));b.onkeydown=e=>{if(e.key==='ArrowDown'){e.preventDefault();action(()=>toggleModelPicker(b.dataset.picker,true))}}});document.querySelectorAll('[data-models]').forEach(b=>{const prefix=b.dataset.models;writerNote(prefix);b.onclick=()=>action(()=>loadWriterModels(prefix));$(prefix+'-roteiro_provedor').onchange=()=>{if(prefix==='create')quickModelChoice=null;const provider=$(prefix+'-roteiro_provedor').value;$(prefix+'-roteiro_modelo').innerHTML=`<option value="">${provider==='local'?'Modelo local instalado':'Atualize o catálogo para escolher'}</option>`;writerCatalog[prefix]=[];closeModelPickers();paintModel(prefix);writerNote(prefix);if(provider==='local'||provider==='openrouter'||provider==='groq')action(()=>loadWriterModels(prefix))}})}
+function paintTeaching(){const box=$('teaching-summary'),d=current?.didatica;box.hidden=!d;if(!d)return;if(d.tipo_roteiro==='motivacional'){box.innerHTML=`<strong>Plano motivacional · ${esc(d.publico)}</strong><p>${esc(d.plano.objetivo)}</p><p><b>Abertura:</b> ${esc(d.plano.gancho)}</p><p><b>Perspectiva:</b> ${esc(d.plano.virada_de_perspectiva)}</p><p><b>Ação possível:</b> ${esc(d.plano.passo_pratico)}</p><p><b>Fechamento:</b> ${esc(d.plano.fechamento)}</p><div class="lesson-stages">${d.etapas.map(s=>`<span>${esc(s)}</span>`).join(' → ')}</div><p class="small">${d.duracao_medida_s?`Fala medida: ${(d.duracao_medida_s/60).toFixed(1)} min · `:''}${esc(d.provedor)} / ${esc(d.modelo)}</p>${d.desatualizado?'<p class="lesson-warning">O texto ou a voz mudou; confira a medição anterior.</p>':''}${d.aviso_tempo?`<p class="lesson-warning">${esc(d.aviso_tempo)}</p>`:''}${d.pendencias_para_revisao_humana?.length?`<p class="lesson-warning">${d.pendencias_para_revisao_humana.map(x=>esc(x)).join('<br>')}</p>`:''}`;return}box.innerHTML=`<strong>Plano didático · ${esc(d.publico)}</strong><p>${esc(d.plano.objetivo)}</p><p>${esc(d.plano.recorte_para_o_tempo)}</p><div class="lesson-stages">${d.etapas.map(s=>`<span>${esc(stageName(s))}</span>`).join(' → ')}</div><p class="small">${d.duracao_medida_s?`Fala medida: ${(d.duracao_medida_s/60).toFixed(1).replace('.',',')} min · alvo: ${(d.duracao_alvo_s/60).toFixed(1).replace('.',',')} min · `:''}${esc(d.provedor)} / ${esc(d.modelo)}</p>${d.ia_planejamento?`<p class="small">Planejamento: ${esc(providerName(d.ia_planejamento.provedor))} · ${esc(d.ia_planejamento.modelo)}</p>`:''}${d.desatualizado?'<p class="lesson-warning">Você editou o roteiro ou a voz após a revisão. A medição anterior precisa ser conferida.</p>':''}${d.aviso_tempo?`<p class="lesson-warning">${esc(d.aviso_tempo)}</p>`:''}${d.pendencias_para_revisao_humana?.length?`<details open><summary>Pontos para sua revisão</summary><ul>${d.pendencias_para_revisao_humana.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`:'<p class="small">Revisão automática concluída. Confira fatos, exemplos e clareza antes de renderizar.</p>'}`}
+function paintResearch(){const box=$('research-summary'),r=current?.checagem;box.hidden=!r;if(!r)return;const labels={corroborada:'Trecho de apoio localizado',divergente:'Divergência encontrada',citacao_localizada:'Citação localizada na obra',nao_confirmada:'Não confirmada'};box.innerHTML=`<strong>Fontes externas · ${r.afirmacoes.length} afirmações centrais</strong><p class="small">Checagem por documentos lidos e trechos conferidos. Não cobre automaticamente cada frase nem elimina divergências de interpretação.</p>${r.desatualizada?'<p class="lesson-warning">O roteiro foi alterado após a checagem. Gere novamente para atualizar a verificação.</p>':''}${r.afirmacoes.map(c=>`<details><summary><span class="claim-status ${esc(c.status)}">${labels[c.status]||esc(c.status)}</span> ${esc(c.afirmacao)}</summary><p>${esc(c.explicacao)}</p>${c.evidencias.map(e=>`<div class="source-evidence"><a href="${esc(e.url)}" target="_blank" rel="noreferrer">[${esc(e.fonte)}] ${esc(e.titulo)}</a><small>${esc(e.tipo_fonte)} · ${esc(e.relacao)}${e.pagina?' · página '+e.pagina:''}</small>${e.trecho_exato?`<blockquote>${esc(e.trecho_exato)}</blockquote>`:`<p class="small">${esc(e.nota_trecho||'Consulte o documento original.')}</p>`}</div>`).join('')}</details>`).join('')}<div class="downloads"><a class="secondary" href="/api/projects/${current.id}/download/fontes-verificadas.md">↓ Fontes e checagens</a>${r.retratos?.length?`<a class="secondary" href="/api/projects/${current.id}/download/creditos-imagens.md">↓ Créditos dos retratos</a>`:''}</div>`}
+const KEY_MASK='••••••••••••••••••••••••••••••••';
+async function refreshKeyStatus(){
+ const status=await api('/api/roteiro/credenciais'),provider=$('key-provider').value,s=status[provider];
+ const keyInput=$('api-key'),persistBox=$('persist-key'),statusBox=$('key-status');
+ if(s&&s.configurada){
+  keyInput.value=KEY_MASK;
+  keyInput.removeAttribute('required');
+  persistBox.checked=!!s.persistida;
+  statusBox.className='key-status-box '+(s.erro?'empty':'active');
+  statusBox.innerHTML=s.erro?`<strong>Chave salva · acesso do Windows indisponível</strong><p class="small">${esc(s.erro)}</p>`:`<div class="key-verified-card"><div class="key-verified-title"><span class="key-verified-dot"></span><strong>Chave do ${providerName(provider)} cadastrada</strong></div><p class="small" style="margin:4px 0 0;color:var(--ink-secondary)">${s.persistida?'✓ Salva com criptografia DPAPI neste computador':'✓ Guardada em memória para esta sessão do estúdio'}. O acesso à API é conferido ao carregar o catálogo.</p></div>`;
+ }else{
+  keyInput.value='';
+  keyInput.setAttribute('required','');
+  persistBox.checked=false;
+  statusBox.className='key-status-box empty';
+  statusBox.innerHTML=`<p class="small" style="color:var(--muted)">Nenhuma chave cadastrada para ${providerName(provider)}. Cole sua chave acima e clique em "Guardar chave".</p>`;
+ }
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ const keyInput=$('api-key');
+ if(keyInput){
+  keyInput.onfocus=function(){if(this.value===KEY_MASK)this.value=''};
+  keyInput.onblur=function(){if(!this.value.trim())refreshKeyStatus()};
+ }
+ $('api-settings').onclick=()=>action(async()=>{await refreshKeyStatus();$('api-dialog').showModal()});
+ $('api-close').onclick=()=>$('api-dialog').close();
+ $('key-provider').onchange=()=>action(refreshKeyStatus);
+ $('api-form').onsubmit=e=>{
+  e.preventDefault();
+  action(async()=>{
+   const rawKey=$('api-key').value.trim();
+   const provider=$('key-provider').value;
+   const persist=$('persist-key').checked;
+   const keyToSend=(!rawKey||rawKey===KEY_MASK)?'••••••••':rawKey;
+   await api('/api/roteiro/credenciais',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({provedor:provider,chave:keyToSend,persistir:persist})});
+   await refreshKeyStatus();
+   toast('Chave do '+providerName(provider)+' guardada com sucesso! Catálogo de modelos liberado.');
+  });
+ };
+ $('key-remove').onclick=()=>action(async()=>{
+  const provider=$('key-provider').value;
+  await api('/api/roteiro/credenciais/'+provider,{method:'DELETE'});
+  $('api-key').value='';
+  $('api-key').setAttribute('required','');
+  $('persist-key').checked=false;
+  await refreshKeyStatus();
+  toast('Chave do '+providerName(provider)+' removida.');
+ });
+});

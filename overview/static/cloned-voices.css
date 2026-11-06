@@ -1,0 +1,16 @@
+#voices-open{display:inline-flex;align-items:center;gap:8px;margin:0 16px;border-color:var(--green);color:var(--ink);white-space:nowrap}
+#voices-open svg{width:17px;height:17px;color:var(--green)}
+#voices-dialog{width:min(940px,94vw);max-width:94vw;max-height:90dvh;overflow:auto}
+.voices-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:26px;margin-top:22px}
+.voices-layout label{display:block;margin:14px 0 6px}.voices-layout input,.voices-layout select,.voices-layout textarea{width:100%}
+.voices-layout .toolbar{flex-wrap:wrap}.voices-layout audio{width:100%;margin-top:10px}
+.voices-recording{color:#ff8f8f}.voice-saved{padding:14px;border:1px solid var(--line);border-radius:10px;margin:12px 0;background:var(--paper)}
+.voice-saved strong,.voice-saved small{display:block;margin-bottom:8px}.voice-saved .toolbar{gap:7px;margin-top:10px}
+.voice-saved .voice-delete{color:#ffb5b5;border-color:#d96c6c66}.voice-saved .voice-delete:hover{background:#9b25252b;border-color:#e68b8b}.voice-delete-confirm{margin-top:14px;padding:12px;border:1px solid #d96c6c66;border-radius:8px;background:#9b252514}.voice-delete-confirm[hidden]{display:none}.voice-delete-confirm p{font-size:12px;line-height:1.6;margin:0}.voice-delete-confirm p strong{display:inline;margin:0}
+.voices-empty{padding:20px;border:1px dashed var(--line);border-radius:10px}.voices-status{min-height:1.8em;white-space:pre-wrap}
+#voice-reference-audio[hidden],#voice-preview-audio[hidden]{display:none}
+.voice-select-note{border-left:3px solid var(--green);padding-left:10px}
+.voice-quality-note{color:#f6ce8a}.voice-quality-options{margin:18px 0}.voice-quality-options>summary{cursor:pointer;color:var(--ink);font-weight:700;padding:12px;border:1px solid var(--line);border-radius:8px}.voice-quality-options[open]>summary{margin-bottom:12px}
+.voice-tuning{margin:12px 0}.voice-tuning>summary{cursor:pointer;padding:9px;border:1px solid var(--line);border-radius:7px;color:var(--ink);font-weight:700}
+@media(max-width:800px){.voices-layout{grid-template-columns:1fr}main>header{flex-wrap:wrap;height:auto;min-height:68px;gap:8px;padding:10px 0}.header-actions{margin-left:auto}#voices-open{margin:0 7px}.workflow-steps{display:none}}
+@media(max-width:480px){#voices-open{font-size:11px;padding:8px}.header-actions{gap:4px}#voices-dialog{padding:18px}}

@@ -1,0 +1,14 @@
+.dictation-field{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:6px;min-width:0;width:100%}
+.dictation-field>input,.dictation-field>textarea{width:100%;min-width:0;margin:0}
+.dictation-controls{display:flex;flex-direction:column;gap:4px}
+.dictation-field .dictation-mic,.dictation-field .dictation-cancel{display:flex;align-items:center;justify-content:center;width:38px;min-height:38px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--paper-solid);color:var(--green);cursor:pointer;font-size:17px;flex:none}
+.dictation-field .dictation-mic:hover,.dictation-field .dictation-cancel:hover{background:var(--green-light);border-color:var(--green)}
+.dictation-field button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.dictation-field button:disabled{opacity:.4;cursor:default}
+.dictation-field .dictation-cancel[hidden]{display:none}
+.dictation-active .dictation-mic{color:#ff8787;border-color:#ff8787;background:rgba(190,40,50,.13);animation:dictation-pulse 1.5s ease-in-out infinite}
+.dictation-status{grid-column:1/-1;display:block;font-size:11px;font-weight:400;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
+.dictation-status[hidden]{display:none}.dictation-status.dictation-error{color:#ff8787}
+.scene-head>.dictation-field{flex:1}.scene-head .dictation-field .dictation-mic{min-height:32px;width:32px;padding:5px}
+@keyframes dictation-pulse{50%{box-shadow:0 0 0 4px rgba(255,135,135,.14)}}
+@media(prefers-reduced-motion:reduce){.dictation-active .dictation-mic{animation:none}}

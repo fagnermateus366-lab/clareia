@@ -1,0 +1,1348 @@
+[
+  {
+    "id": "executivo",
+    "name": "Executivo ilustrativo",
+    "file": "figures/executivo.png",
+    "category": "archive",
+    "tags": [
+      "executivo",
+      "homem de terno",
+      "empresário",
+      "businessman"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "navio",
+    "name": "Navio",
+    "file": "figures/navio.png",
+    "category": "archive",
+    "tags": [
+      "navio",
+      "navios",
+      "barco a vapor",
+      "steamship",
+      "ship"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "aviao",
+    "name": "Avião",
+    "file": "figures/aviao.png",
+    "category": "archive",
+    "tags": [
+      "avião",
+      "aviões",
+      "aeronave",
+      "aviação",
+      "airplane",
+      "aircraft"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "antena",
+    "name": "Antena parabólica",
+    "file": "figures/antena.png",
+    "category": "archive",
+    "tags": [
+      "antena parabólica",
+      "satélite de comunicação",
+      "antena",
+      "satellite dish"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "globo",
+    "name": "Globo terrestre",
+    "file": "figures/globo.png",
+    "category": "archive",
+    "tags": [
+      "globo",
+      "globo terrestre",
+      "geografia",
+      "globe"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "livros",
+    "name": "Livros",
+    "file": "figures/livros.png",
+    "category": "archive",
+    "tags": [
+      "livro",
+      "livros",
+      "biblioteca",
+      "leitura",
+      "books"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "dinheiro",
+    "name": "Dinheiro",
+    "file": "figures/dinheiro.png",
+    "category": "archive",
+    "tags": [
+      "dinheiro",
+      "moeda",
+      "moedas",
+      "cédulas",
+      "money",
+      "currency"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "fabrica",
+    "name": "Fábrica",
+    "file": "figures/fabrica.png",
+    "category": "archive",
+    "tags": [
+      "fábrica",
+      "fábricas",
+      "indústria",
+      "industrialização",
+      "factory"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "trem",
+    "name": "Locomotiva",
+    "file": "figures/trem.png",
+    "category": "archive",
+    "tags": [
+      "trem",
+      "trens",
+      "locomotiva",
+      "ferrovia",
+      "train"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "microscopio",
+    "name": "Microscópio",
+    "file": "figures/microscopio.png",
+    "category": "archive",
+    "tags": [
+      "microscópio",
+      "microscopia",
+      "microscope"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "telefone",
+    "name": "Telefone",
+    "file": "figures/telefone.png",
+    "category": "archive",
+    "tags": [
+      "telefone",
+      "telefonia",
+      "telephone",
+      "rotary phone"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "cerebro",
+    "name": "Cérebro",
+    "file": "figures/cerebro.png",
+    "category": "archive",
+    "tags": [
+      "cérebro",
+      "mente",
+      "cognição",
+      "brain"
+    ],
+    "atlas": "archive",
+    "illustrative": true
+  },
+  {
+    "id": "coracao",
+    "name": "Coração",
+    "file": "figures/coracao.png",
+    "category": "science",
+    "tags": [
+      "coração",
+      "cardíaco",
+      "heart"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "arvore",
+    "name": "Árvore",
+    "file": "figures/arvore.png",
+    "category": "science",
+    "tags": [
+      "árvore",
+      "árvores",
+      "floresta",
+      "florestas",
+      "tree"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "balanca",
+    "name": "Balança",
+    "file": "figures/balanca.png",
+    "category": "science",
+    "tags": [
+      "balança",
+      "equilíbrio",
+      "scales"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "governo",
+    "name": "Edifício público ilustrativo",
+    "file": "figures/governo.png",
+    "category": "science",
+    "tags": [
+      "governo",
+      "parlamento",
+      "estado",
+      "edifício público",
+      "government building"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "computador",
+    "name": "Computador",
+    "file": "figures/computador.png",
+    "category": "science",
+    "tags": [
+      "computador",
+      "notebook",
+      "laptop",
+      "computer"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "celular",
+    "name": "Celular",
+    "file": "figures/celular.png",
+    "category": "science",
+    "tags": [
+      "celular",
+      "smartphone",
+      "telefone móvel"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "engrenagem",
+    "name": "Engrenagem",
+    "file": "figures/engrenagem.png",
+    "category": "science",
+    "tags": [
+      "engrenagem",
+      "engrenagens",
+      "mecanismo",
+      "gear"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "lampada",
+    "name": "Lâmpada",
+    "file": "figures/lampada.png",
+    "category": "science",
+    "tags": [
+      "lâmpada",
+      "iluminação",
+      "invenção",
+      "lightbulb"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "cilindro",
+    "name": "Cilindro",
+    "file": "figures/cilindro.png",
+    "category": "science",
+    "tags": [
+      "cilindro",
+      "cilindros",
+      "cylinder"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "caixa-geometrica",
+    "name": "Paralelepípedo",
+    "file": "figures/caixa-geometrica.png",
+    "category": "science",
+    "tags": [
+      "paralelepípedo",
+      "prisma retangular",
+      "caixa geométrica",
+      "rectangular box"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "relogio",
+    "name": "Relógio",
+    "file": "figures/relogio.png",
+    "category": "science",
+    "tags": [
+      "relógio",
+      "tempo",
+      "duração",
+      "pocket watch",
+      "clock"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "folha",
+    "name": "Folhas",
+    "file": "figures/folha.png",
+    "category": "science",
+    "tags": [
+      "folha",
+      "folhas",
+      "planta",
+      "plantas",
+      "botânica",
+      "leaf",
+      "leaves"
+    ],
+    "atlas": "science",
+    "illustrative": true
+  },
+  {
+    "id": "estetoscopio",
+    "name": "Estetoscópio",
+    "file": "figures/estetoscopio.png",
+    "category": "health",
+    "tags": [
+      "estetoscópio",
+      "consulta médica",
+      "medicina",
+      "stethoscope"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "seringa",
+    "name": "Seringa",
+    "file": "figures/seringa.png",
+    "category": "health",
+    "tags": [
+      "seringa",
+      "vacina",
+      "vacinas",
+      "vacinação",
+      "syringe",
+      "vaccine"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "pulmoes",
+    "name": "Pulmões",
+    "file": "figures/pulmoes.png",
+    "category": "health",
+    "tags": [
+      "pulmão",
+      "pulmões",
+      "respiração",
+      "lungs"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "dna",
+    "name": "DNA",
+    "file": "figures/dna.png",
+    "category": "health",
+    "tags": [
+      "dna",
+      "genética",
+      "gene",
+      "genes",
+      "dupla hélice"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "cadeira-rodas",
+    "name": "Cadeira de rodas",
+    "file": "figures/cadeira-rodas.png",
+    "category": "health",
+    "tags": [
+      "cadeira de rodas",
+      "mobilidade reduzida",
+      "wheelchair"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "jaleco",
+    "name": "Jaleco",
+    "file": "figures/jaleco.png",
+    "category": "health",
+    "tags": [
+      "jaleco",
+      "médico",
+      "médica",
+      "medical coat"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "remedios",
+    "name": "Medicamentos",
+    "file": "figures/remedios.png",
+    "category": "health",
+    "tags": [
+      "remédio",
+      "remédios",
+      "medicamento",
+      "medicamentos",
+      "comprimido",
+      "medicine"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "esqueleto",
+    "name": "Esqueleto",
+    "file": "figures/esqueleto.png",
+    "category": "health",
+    "tags": [
+      "esqueleto",
+      "ossos",
+      "skeleton"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "dente",
+    "name": "Dente",
+    "file": "figures/dente.png",
+    "category": "health",
+    "tags": [
+      "dente",
+      "dentes",
+      "odontologia",
+      "tooth"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "primeiros-socorros",
+    "name": "Primeiros socorros",
+    "file": "figures/primeiros-socorros.png",
+    "category": "health",
+    "tags": [
+      "primeiros socorros",
+      "kit médico",
+      "first aid"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "tubos-ensaio",
+    "name": "Tubos de ensaio",
+    "file": "figures/tubos-ensaio.png",
+    "category": "health",
+    "tags": [
+      "tubo de ensaio",
+      "tubos de ensaio",
+      "química",
+      "test tubes"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "oculos",
+    "name": "Óculos",
+    "file": "figures/oculos.png",
+    "category": "health",
+    "tags": [
+      "óculos",
+      "visão",
+      "eyeglasses"
+    ],
+    "atlas": "health",
+    "illustrative": true
+  },
+  {
+    "id": "painel-solar",
+    "name": "Painel solar",
+    "file": "figures/painel-solar.png",
+    "category": "nature",
+    "tags": [
+      "painel solar",
+      "painéis solares",
+      "energia solar",
+      "solar panel"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "turbina-eolica",
+    "name": "Turbina eólica",
+    "file": "figures/turbina-eolica.png",
+    "category": "nature",
+    "tags": [
+      "turbina eólica",
+      "energia eólica",
+      "aerogerador",
+      "wind turbine"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "gota-agua",
+    "name": "Gota de água",
+    "file": "figures/gota-agua.png",
+    "category": "nature",
+    "tags": [
+      "gota",
+      "água",
+      "water droplet"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "onda",
+    "name": "Onda do mar",
+    "file": "figures/onda.png",
+    "category": "nature",
+    "tags": [
+      "onda",
+      "ondas",
+      "oceano",
+      "mar",
+      "ocean wave"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "montanha",
+    "name": "Montanha",
+    "file": "figures/montanha.png",
+    "category": "nature",
+    "tags": [
+      "montanha",
+      "montanhas",
+      "relevo",
+      "mountain"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "vulcao",
+    "name": "Vulcão",
+    "file": "figures/vulcao.png",
+    "category": "nature",
+    "tags": [
+      "vulcão",
+      "vulcões",
+      "erupção",
+      "volcano"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "abelha",
+    "name": "Abelha",
+    "file": "figures/abelha.png",
+    "category": "nature",
+    "tags": [
+      "abelha",
+      "abelhas",
+      "polinização",
+      "bee"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "borboleta",
+    "name": "Borboleta",
+    "file": "figures/borboleta.png",
+    "category": "nature",
+    "tags": [
+      "borboleta",
+      "borboletas",
+      "metamorfose",
+      "butterfly"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "peixe",
+    "name": "Peixe",
+    "file": "figures/peixe.png",
+    "category": "nature",
+    "tags": [
+      "peixe",
+      "peixes",
+      "pesca",
+      "fish"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "vaca",
+    "name": "Vaca",
+    "file": "figures/vaca.png",
+    "category": "nature",
+    "tags": [
+      "vaca",
+      "gado",
+      "pecuária",
+      "cow"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "trigo",
+    "name": "Trigo",
+    "file": "figures/trigo.png",
+    "category": "nature",
+    "tags": [
+      "trigo",
+      "cereal",
+      "cereais",
+      "wheat"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "terra",
+    "name": "Planeta Terra",
+    "file": "figures/terra.png",
+    "category": "nature",
+    "tags": [
+      "planeta terra",
+      "terra",
+      "earth"
+    ],
+    "atlas": "nature",
+    "illustrative": true
+  },
+  {
+    "id": "chip",
+    "name": "Microchip",
+    "file": "figures/chip.png",
+    "category": "technology",
+    "tags": [
+      "chip",
+      "microchip",
+      "processador",
+      "semicondutor"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "servidores",
+    "name": "Servidores",
+    "file": "figures/servidores.png",
+    "category": "technology",
+    "tags": [
+      "servidor",
+      "servidores",
+      "data center",
+      "armazenamento de dados",
+      "server rack"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "robo",
+    "name": "Braço robótico",
+    "file": "figures/robo.png",
+    "category": "technology",
+    "tags": [
+      "robô",
+      "robótica",
+      "automação",
+      "braço robótico",
+      "robot arm"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "camera",
+    "name": "Câmera fotográfica",
+    "file": "figures/camera.png",
+    "category": "technology",
+    "tags": [
+      "câmera fotográfica",
+      "fotografia",
+      "câmera",
+      "camera"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "televisao",
+    "name": "Televisão",
+    "file": "figures/televisao.png",
+    "category": "technology",
+    "tags": [
+      "televisão",
+      "televisor",
+      "tv",
+      "television"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "radio",
+    "name": "Rádio",
+    "file": "figures/radio.png",
+    "category": "technology",
+    "tags": [
+      "rádio",
+      "radiofonia",
+      "radio"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "fones",
+    "name": "Fones de ouvido",
+    "file": "figures/fones.png",
+    "category": "technology",
+    "tags": [
+      "fones",
+      "fone de ouvido",
+      "áudio",
+      "headphones"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "controle-jogo",
+    "name": "Controle de videogame",
+    "file": "figures/controle-jogo.png",
+    "category": "technology",
+    "tags": [
+      "videogame",
+      "controle de videogame",
+      "jogos eletrônicos",
+      "game controller"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "telescopio",
+    "name": "Telescópio",
+    "file": "figures/telescopio.png",
+    "category": "technology",
+    "tags": [
+      "telescópio",
+      "astronomia",
+      "telescope"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "foguete",
+    "name": "Foguete",
+    "file": "figures/foguete.png",
+    "category": "technology",
+    "tags": [
+      "foguete",
+      "lançamento espacial",
+      "rocket"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "astronauta",
+    "name": "Astronauta",
+    "file": "figures/astronauta.png",
+    "category": "technology",
+    "tags": [
+      "astronauta",
+      "exploração espacial",
+      "astronaut"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "roteador",
+    "name": "Roteador",
+    "file": "figures/roteador.png",
+    "category": "technology",
+    "tags": [
+      "roteador",
+      "wifi",
+      "wi fi",
+      "rede sem fio",
+      "wireless router"
+    ],
+    "atlas": "technology",
+    "illustrative": true
+  },
+  {
+    "id": "carteira-escolar",
+    "name": "Carteira escolar",
+    "file": "figures/carteira-escolar.png",
+    "category": "society",
+    "tags": [
+      "carteira escolar",
+      "escola",
+      "sala de aula",
+      "school desk"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "formatura",
+    "name": "Capelo de formatura",
+    "file": "figures/formatura.png",
+    "category": "society",
+    "tags": [
+      "formatura",
+      "graduação",
+      "universidade",
+      "graduation cap"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "quadro-escolar",
+    "name": "Quadro escolar",
+    "file": "figures/quadro-escolar.png",
+    "category": "society",
+    "tags": [
+      "quadro escolar",
+      "lousa",
+      "chalkboard"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "jornal",
+    "name": "Jornal",
+    "file": "figures/jornal.png",
+    "category": "society",
+    "tags": [
+      "jornal",
+      "jornais",
+      "imprensa",
+      "jornalismo",
+      "newspaper"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "martelo-juiz",
+    "name": "Martelo de juiz",
+    "file": "figures/martelo-juiz.png",
+    "category": "society",
+    "tags": [
+      "martelo de juiz",
+      "juiz",
+      "justiça",
+      "judiciário",
+      "gavel"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "urna",
+    "name": "Urna ilustrativa",
+    "file": "figures/urna.png",
+    "category": "society",
+    "tags": [
+      "urna",
+      "eleição",
+      "eleições",
+      "voto",
+      "democracia",
+      "ballot box"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "distintivo",
+    "name": "Distintivo",
+    "file": "figures/distintivo.png",
+    "category": "society",
+    "tags": [
+      "distintivo",
+      "polícia",
+      "segurança pública",
+      "police badge"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "casa",
+    "name": "Casa",
+    "file": "figures/casa.png",
+    "category": "society",
+    "tags": [
+      "casa",
+      "moradia",
+      "habitação",
+      "house"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "predio",
+    "name": "Prédio residencial",
+    "file": "figures/predio.png",
+    "category": "society",
+    "tags": [
+      "prédio",
+      "apartamento",
+      "edifício residencial",
+      "apartment"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "ponte",
+    "name": "Ponte",
+    "file": "figures/ponte.png",
+    "category": "society",
+    "tags": [
+      "ponte",
+      "pontes",
+      "bridge"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "cidade",
+    "name": "Cidade",
+    "file": "figures/cidade.png",
+    "category": "society",
+    "tags": [
+      "cidade",
+      "cidades",
+      "urbanização",
+      "metrópole",
+      "city skyline"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "multidao",
+    "name": "Multidão ilustrativa",
+    "file": "figures/multidao.png",
+    "category": "society",
+    "tags": [
+      "multidão",
+      "sociedade",
+      "população",
+      "grupo de pessoas",
+      "crowd"
+    ],
+    "atlas": "society",
+    "illustrative": true
+  },
+  {
+    "id": "banco",
+    "name": "Banco ilustrativo",
+    "file": "figures/banco.png",
+    "category": "economy",
+    "tags": [
+      "banco",
+      "bancos",
+      "instituição financeira",
+      "bank building"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "carrinho",
+    "name": "Carrinho de compras",
+    "file": "figures/carrinho.png",
+    "category": "economy",
+    "tags": [
+      "carrinho de compras",
+      "consumo",
+      "compras",
+      "shopping cart"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "encomenda",
+    "name": "Encomenda",
+    "file": "figures/encomenda.png",
+    "category": "economy",
+    "tags": [
+      "encomenda",
+      "pacote",
+      "entrega",
+      "delivery package"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "conteiner",
+    "name": "Contêiner",
+    "file": "figures/conteiner.png",
+    "category": "economy",
+    "tags": [
+      "contêiner",
+      "container",
+      "carga",
+      "cargo container"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "trator",
+    "name": "Trator",
+    "file": "figures/trator.png",
+    "category": "economy",
+    "tags": [
+      "trator",
+      "agricultura",
+      "mecanização",
+      "tractor"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "petroleo",
+    "name": "Bomba de petróleo",
+    "file": "figures/petroleo.png",
+    "category": "economy",
+    "tags": [
+      "petróleo",
+      "bomba de petróleo",
+      "combustível",
+      "oil pumpjack"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "picareta",
+    "name": "Picareta",
+    "file": "figures/picareta.png",
+    "category": "economy",
+    "tags": [
+      "picareta",
+      "mineração",
+      "mina",
+      "pickaxe"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "balanca-moedas",
+    "name": "Balança com moedas",
+    "file": "figures/balanca-moedas.png",
+    "category": "economy",
+    "tags": [
+      "balança com moedas",
+      "custo",
+      "custos",
+      "balanço financeiro",
+      "scale with coins"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "grafico",
+    "name": "Blocos ilustrativos de gráfico",
+    "file": "figures/grafico.png",
+    "category": "economy",
+    "tags": [
+      "gráfico de barras",
+      "gráfico",
+      "bar chart"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "acordo",
+    "name": "Aperto de mãos",
+    "file": "figures/acordo.png",
+    "category": "economy",
+    "tags": [
+      "aperto de mãos",
+      "acordo",
+      "cooperação",
+      "handshake"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "telefonista",
+    "name": "Telefonista ilustrativa",
+    "file": "figures/telefonista.png",
+    "category": "economy",
+    "tags": [
+      "telefonista",
+      "central telefônica",
+      "switchboard"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "caminhao",
+    "name": "Caminhão de cargas",
+    "file": "figures/caminhao.png",
+    "category": "economy",
+    "tags": [
+      "caminhão",
+      "transporte de cargas",
+      "logística",
+      "truck"
+    ],
+    "atlas": "economy",
+    "illustrative": true
+  },
+  {
+    "id": "bicicleta",
+    "name": "Bicicleta",
+    "file": "figures/bicicleta.png",
+    "category": "daily",
+    "tags": [
+      "bicicleta",
+      "ciclismo",
+      "bicycle"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "carro",
+    "name": "Automóvel",
+    "file": "figures/carro.png",
+    "category": "daily",
+    "tags": [
+      "carro",
+      "automóvel",
+      "automóvel antigo",
+      "car"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "onibus",
+    "name": "Ônibus",
+    "file": "figures/onibus.png",
+    "category": "daily",
+    "tags": [
+      "ônibus",
+      "transporte coletivo",
+      "bus"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "veleiro",
+    "name": "Veleiro",
+    "file": "figures/veleiro.png",
+    "category": "daily",
+    "tags": [
+      "veleiro",
+      "vela",
+      "sailboat"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "guitarra",
+    "name": "Guitarra",
+    "file": "figures/guitarra.png",
+    "category": "daily",
+    "tags": [
+      "guitarra",
+      "guitar"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "piano",
+    "name": "Piano",
+    "file": "figures/piano.png",
+    "category": "daily",
+    "tags": [
+      "piano",
+      "música instrumental"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "bola",
+    "name": "Bola de futebol",
+    "file": "figures/bola.png",
+    "category": "daily",
+    "tags": [
+      "bola",
+      "futebol",
+      "esporte",
+      "soccer ball"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "claquete",
+    "name": "Claquete",
+    "file": "figures/claquete.png",
+    "category": "daily",
+    "tags": [
+      "claquete",
+      "cinema",
+      "filme",
+      "clapperboard"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "cafe",
+    "name": "Café",
+    "file": "figures/cafe.png",
+    "category": "daily",
+    "tags": [
+      "café",
+      "xícara",
+      "coffee"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "pao",
+    "name": "Pão",
+    "file": "figures/pao.png",
+    "category": "daily",
+    "tags": [
+      "pão",
+      "panificação",
+      "bread"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "torneira",
+    "name": "Torneira",
+    "file": "figures/torneira.png",
+    "category": "daily",
+    "tags": [
+      "torneira",
+      "saneamento",
+      "abastecimento de água",
+      "faucet"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  },
+  {
+    "id": "cadeado",
+    "name": "Cadeado",
+    "file": "figures/cadeado.png",
+    "category": "daily",
+    "tags": [
+      "cadeado",
+      "chave",
+      "privacidade",
+      "padlock"
+    ],
+    "atlas": "daily",
+    "illustrative": true
+  }
+]

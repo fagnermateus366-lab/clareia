@@ -1,0 +1,15 @@
+.music-sources{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px}.music-sources [aria-pressed=true]{background:var(--green);color:#07171b;border-color:var(--green)}
+#music-youtube-panel h3{margin:8px 0}.youtube-music-license{padding:12px;border-left:3px solid #dba24f;background:#c88b1610;line-height:1.6}
+#music-youtube-search{display:flex;align-items:end;gap:12px;margin:20px 0}#music-youtube-search label{flex:1;margin:0}#music-youtube-search button{min-height:42px;margin:0}
+.youtube-music-results{display:grid;gap:12px;margin:18px 0}.youtube-music-card{display:grid;grid-template-columns:100px minmax(0,1fr);gap:16px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--paper-solid)}
+.youtube-music-card>img{width:100px;height:100px;object-fit:cover;border-radius:8px}.youtube-music-card h4{font-size:16px;margin:0 0 6px}.youtube-music-card p{font-size:13px;margin:5px 0}.youtube-music-card small{font-size:12px;color:var(--muted)}.youtube-music-card a{color:var(--green);font-size:12px}
+.youtube-import-progress{padding:15px;border:1px solid var(--line);border-radius:12px;margin:12px 0}.youtube-import-progress progress{width:100%;margin:8px 0}.youtube-import-progress p{font-size:13px}
+#music-youtube-preview{padding:12px;margin:16px 0;border:1px solid var(--line);border-radius:12px}#music-youtube-preview iframe{display:block;width:100%;max-width:560px;aspect-ratio:16/9;border:0;border-radius:9px;margin:12px auto}
+.youtube-preview-title{display:flex;gap:12px;justify-content:space-between;align-items:center}.youtube-preview-title strong{font-size:13px}
+@media(max-width:560px){#music-youtube-search{display:block}#music-youtube-search button{margin-top:10px}.youtube-music-card{grid-template-columns:64px minmax(0,1fr);padding:12px;gap:10px}.youtube-music-card>img{width:64px;height:64px}.youtube-preview-title{display:block}}
+#youtube-clips-dialog{width:min(980px,94vw);max-height:90vh;overflow-y:auto}#youtube-clips-dialog>.dialog-head{position:sticky;top:-1px;z-index:2;background:var(--paper-solid);padding:8px 0}
+#youtube-clips-search{display:grid;grid-template-columns:minmax(0,1fr) 190px auto;gap:12px;align-items:end;margin:18px 0}#youtube-clips-search label{margin:0}#youtube-clips-search button{min-height:42px}
+#youtube-clips-preview iframe,#youtube-clips-preview video{display:block;width:100%;max-width:560px;aspect-ratio:16/9;max-height:60vh;border:0;object-fit:contain;margin:12px auto;background:#07151c}#youtube-clips-preview{margin:15px 0;padding:12px;border:1px solid var(--line);border-radius:12px}
+#youtube-clips-preview{scroll-margin-top:80px}#youtube-clips-preview a{color:var(--green);font-size:12px;margin-right:12px}
+.pending-youtube-clip{display:flex;gap:10px;align-items:center;padding:9px;border:1px solid var(--line);border-radius:8px;margin:8px 0}.pending-youtube-clip img{width:60px;height:42px;object-fit:cover}.pending-youtube-clip span{flex:1;font-size:12px}.pending-youtube-clip button{padding:5px 10px}
+@media(max-width:650px){#youtube-clips-search{grid-template-columns:1fr}}

@@ -1,0 +1,284 @@
+{
+  "repository": "https://github.com/Vincentwei1021/video-shotcraft",
+  "revision": "43bd349a136651865ecfa6ea1cf012f6e957d304",
+  "license": "Apache-2.0",
+  "adaptation": "Selected recipes and original Remotion components reviewed. Known local React/Remotion adaptations in Clareia; model output is schema-bound data. No upstream scripts, audio or product screenshots are executed or reused.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 11340,
+      "sha256": "b2ce9877a55547ada9b870150664d1468ff777e67cc9888806a73927d31c5771",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/LICENSE"
+    },
+    {
+      "path": "references/shots/ATTRIBUTION.md",
+      "bytes": 5224,
+      "sha256": "cb1639407e36439d57ef5fbc2808199d1bf9b397f3ce88a42598ed94734015a5",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ATTRIBUTION.md"
+    },
+    {
+      "path": "references/pipeline.md",
+      "bytes": 25226,
+      "sha256": "1d0236da0cc0cf251543d34ddffd292362e31db1b87250d593c66588444bfe35",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/pipeline.md"
+    },
+    {
+      "path": "references/aesthetic-rules.md",
+      "bytes": 27528,
+      "sha256": "0c7cf0d9a36a8c4e7f25fd67743ae8902b6bbbe4df2ebac1ce658b68070fa275",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/aesthetic-rules.md"
+    },
+    {
+      "path": "assets/lib/helpers/motion.ts",
+      "bytes": 1708,
+      "sha256": "9123bacf8078982a903bb565923974902212f93ebe265e24d188e4362a8e251f",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/assets/lib/helpers/motion.ts"
+    },
+    {
+      "path": "references/shots/typography/marker-underline-title.md",
+      "bytes": 3030,
+      "sha256": "024ec66b6861408e6242f4718962ef0fc3fa3d700b8697d192beaa9ce350991b",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/typography/marker-underline-title.md"
+    },
+    {
+      "path": "references/shots/typography/typewriter-moves.md",
+      "bytes": 2239,
+      "sha256": "e0228ab4223362dfacf62c1b0777ad881fbf93cac4e4c48b0f7b035c99fa1180",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/typography/typewriter-moves.md"
+    },
+    {
+      "path": "references/shots/typography/word-relay-filmstrip.md",
+      "bytes": 4233,
+      "sha256": "c3e8ce278b9fca823b86eeb3fc11bc09530b833db8b8fecc76345cc1ec445894",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/typography/word-relay-filmstrip.md"
+    },
+    {
+      "path": "references/shots/typography/lead-word-zoom-assemble.md",
+      "bytes": 7667,
+      "sha256": "bd5495bc055d134f1de7d27816d67c2ba5449ca27a5838437e03c6a03972167d",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/typography/lead-word-zoom-assemble.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/card-stack.md",
+      "bytes": 5198,
+      "sha256": "3f6bdc5c5b10e4c9d6a6d844feecc3451d38d858abce893e8a3df56f51ac5a63",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/card-stack.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/list-reveal.md",
+      "bytes": 4325,
+      "sha256": "c8b818cc0a3e1e2a71a8709cedd2eaddae6d4fc9a89ba095f8fc5fa47112f8fe",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/list-reveal.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/integration-hub-map.md",
+      "bytes": 3524,
+      "sha256": "ebaec72ec69d2bbf5a94d4a10d95300b4710db4cc815fe04c1ac881281c711e1",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/integration-hub-map.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/draw-svg-trace.md",
+      "bytes": 3950,
+      "sha256": "ff01903bfc3b66cb379a05c21fde03fdd42406e9e31947334358230bc0771952",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/draw-svg-trace.md"
+    },
+    {
+      "path": "references/shots/camera/depth-layer-moves.md",
+      "bytes": 2608,
+      "sha256": "80131fdf2b562c3ee38a9a2eb24dbbf66ccce7a5e4a4a0fc1ae8c3af55807fd7",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/camera/depth-layer-moves.md"
+    },
+    {
+      "path": "references/shots/camera/tension-camera-moves.md",
+      "bytes": 3801,
+      "sha256": "14f3c8f027e070d48cb09194eaad8e10e81b3dc9c633a6c651db387729df4126",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/camera/tension-camera-moves.md"
+    },
+    {
+      "path": "references/shots/data/before-after-slider-scrub.md",
+      "bytes": 2431,
+      "sha256": "af4fbfb90c9d69d1951397c732852f9383d789c6ceca2f9ed659a865ea64d2f3",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/data/before-after-slider-scrub.md"
+    },
+    {
+      "path": "references/shots/data/timeline-travel.md",
+      "bytes": 2513,
+      "sha256": "724840cde4d7bd72374da2a943ac94aee0255a4d1bef055dda6ddf4a6764e227",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/data/timeline-travel.md"
+    },
+    {
+      "path": "references/shots/rhythm/panel-grid-moves.md",
+      "bytes": 2801,
+      "sha256": "521206136207e616cce9b715a20b5578713160d07d8e9e156b645592496f8aac",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/rhythm/panel-grid-moves.md"
+    },
+    {
+      "path": "references/shots/effects/spotlight-sweep-moves.md",
+      "bytes": 3562,
+      "sha256": "35b5a5bde17662af0e303315c5a34f9d79bce89b4779e0c74f0452a80c99af94",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/effects/spotlight-sweep-moves.md"
+    },
+    {
+      "path": "references/shots/effects/icon-performance-moves.md",
+      "bytes": 2465,
+      "sha256": "1cf5c67f439116a25b7ef45280b11a9c50829947f2b67df09c031dac7eb0634a",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/effects/icon-performance-moves.md"
+    },
+    {
+      "path": "references/shots/outro/ui-strip-away-outro.md",
+      "bytes": 4001,
+      "sha256": "b59fa421f1b041d72d27acedf6b555bccef0ba3d5898eb1dcbb3e790c4a85343",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/outro/ui-strip-away-outro.md"
+    },
+    {
+      "path": "demos/README.md",
+      "bytes": 8413,
+      "sha256": "c658e80f55271316b05fb599ecaed282754e11b712ff77c07642304aebae3a0a",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/demos/README.md"
+    },
+    {
+      "path": "demos/camera/depth-layer-moves/MultiplaneReal.tsx",
+      "bytes": 8737,
+      "sha256": "e8e37c70be5ff62eaba0000b82886b7c0411a47d9a9fbb8c94e7fee5278017b3",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/demos/camera/depth-layer-moves/MultiplaneReal.tsx"
+    },
+    {
+      "path": "demos/data/timeline-travel/TimelineTravel.tsx",
+      "bytes": 12578,
+      "sha256": "2512f3702cafba6c6f10feee65639a78c612b67ef9d0253ca75c917b6bad0d73",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/demos/data/timeline-travel/TimelineTravel.tsx"
+    },
+    {
+      "path": "demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx",
+      "bytes": 20401,
+      "sha256": "9cbd6248c7bc104b8ed1687048a3e1356ce1ca055ebbdbb3d2bebcc5a95def27",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx"
+    },
+    {
+      "path": "demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx",
+      "bytes": 10727,
+      "sha256": "7f344745da762ad9eb5f3073963adda41e16dffec707b46b397eaac6a9c4ab35",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx"
+    },
+    {
+      "path": "demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx",
+      "bytes": 27244,
+      "sha256": "1ae56135370ff353b1d20c3fb62d0839da0f6aec68a91dbed1f74f0e38de5041",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx"
+    },
+    {
+      "path": "demos/ui-entrance/card-stack/CardStack.tsx",
+      "bytes": 17901,
+      "sha256": "c02e6c060cee3145384f151eaed89018a60275a1430bd34d31aecac9b33a5a7d",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/demos/ui-entrance/card-stack/CardStack.tsx"
+    },
+    {
+      "path": "template/package.json",
+      "bytes": 476,
+      "sha256": "4291a904d7575ec0b1fc536fd3f5e6d1841b36d49a0b39f5a4546a43a8d28a26",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/template/package.json"
+    },
+    {
+      "path": "references/shots/camera/crash-zoom-punch.md",
+      "bytes": 3740,
+      "sha256": "5086b762de6fb7fa7af45944c488b27117f7667ef29af20c07569eac13fe8a37",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/camera/crash-zoom-punch.md"
+    },
+    {
+      "path": "references/shots/camera/cursor-flyover.md",
+      "bytes": 3844,
+      "sha256": "2cc2f7ebcff90af1c45896d52a1e2748c2531406de4c08e3821c5d0bb76ac6aa",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/camera/cursor-flyover.md"
+    },
+    {
+      "path": "references/shots/camera/terminal-3d.md",
+      "bytes": 4411,
+      "sha256": "829aff175b156811f849b00f4c700a280a6455e603d201a1d8ff4b2bf6f387d9",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/camera/terminal-3d.md"
+    },
+    {
+      "path": "references/shots/effects/riso-print-hits.md",
+      "bytes": 3485,
+      "sha256": "0d875ff094bebf0457ff90b25b67e67530669f7f3257967c363c61af3903e0e1",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/effects/riso-print-hits.md"
+    },
+    {
+      "path": "references/shots/effects/scanline-assemble-flyin.md",
+      "bytes": 4596,
+      "sha256": "0261769582122650acef43373dbc8ea562a4206a5da16f629bd1766e082904ef",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/effects/scanline-assemble-flyin.md"
+    },
+    {
+      "path": "references/shots/effects/slam-entrance-moves.md",
+      "bytes": 5178,
+      "sha256": "84e6c1c8ab4564f1939d93797c8d18cdd5f87fe12ba7484207372a4ee8fdc266",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/effects/slam-entrance-moves.md"
+    },
+    {
+      "path": "references/shots/interaction/glass-pill-dictation-typing.md",
+      "bytes": 4229,
+      "sha256": "a6163a4714e75320b0ff3c40906d587cfd756f6e6843b012e0d6a67161f5f182",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/interaction/glass-pill-dictation-typing.md"
+    },
+    {
+      "path": "references/shots/rhythm/quad-split-parallel-scenes.md",
+      "bytes": 3776,
+      "sha256": "66f2ff3d790434152f1af2b8a6f887943c41ff7948cf1f1f631657cba5a40510",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/rhythm/quad-split-parallel-scenes.md"
+    },
+    {
+      "path": "references/shots/rhythm/speed-ramp-freeze.md",
+      "bytes": 2797,
+      "sha256": "31c7939fbfdd6c1ae98c9f004297641d33652c2fc1efb6641cd788305372cc7d",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/rhythm/speed-ramp-freeze.md"
+    },
+    {
+      "path": "references/shots/typography/outline-word-fill.md",
+      "bytes": 5606,
+      "sha256": "153886c99510897f59dcf898204c782e613740e21c8f511a32bd306fd33e020e",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/typography/outline-word-fill.md"
+    },
+    {
+      "path": "references/shots/typography/title-demote-to-label.md",
+      "bytes": 5216,
+      "sha256": "4e01c04c76d9f6a3f1b18e9c75ac1502cb1aefe1ac08ef47426b8628ea9fa08f",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/typography/title-demote-to-label.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/bezier-source-converge-merge.md",
+      "bytes": 6134,
+      "sha256": "5ccbbe0970128584b45014cac204da862fde611932470bbba869d3bdb7d44c8e",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/bezier-source-converge-merge.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/carousel-3d.md",
+      "bytes": 5916,
+      "sha256": "b4d7033263bc670718df2c72127c5cab57c75aab2e3a9d80255b6e743cd05258",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/carousel-3d.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/deck-deal-flyin.md",
+      "bytes": 7946,
+      "sha256": "7f72c46cf51c896a36014acdf63e13fca3b03f6380a69ecf2cd3b1aaae7e1459",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/deck-deal-flyin.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/page-waterfall-wall.md",
+      "bytes": 3441,
+      "sha256": "2666f4800354164dfd54f90ebbd5741865dd299defb5cbffa83ae666bef3a0c5",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/page-waterfall-wall.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/product-card-progressive-assemble.md",
+      "bytes": 5337,
+      "sha256": "f0aa2f12ff4a597527c1634f28c3958de44db39d535467d6fc80ad67a426ae17",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/product-card-progressive-assemble.md"
+    },
+    {
+      "path": "references/shots/ui-entrance/research-card-stack-scroll.md",
+      "bytes": 4855,
+      "sha256": "89ad86b38e7216d61fa62fe5c4f32c9881a0363c51fcfe4bcaf28e791d49b4d7",
+      "url": "https://raw.githubusercontent.com/Vincentwei1021/video-shotcraft/43bd349a136651865ecfa6ea1cf012f6e957d304/references/shots/ui-entrance/research-card-stack-scroll.md"
+    }
+  ]
+}
