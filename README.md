@@ -11,7 +11,7 @@ Abra o **PowerShell** de 64 bits e cole o comando abaixo. Ele baixa o instalador
 da versão indicada, prepara as dependências e mostra como abrir o Clareia.
 
 ```powershell
-$instalador = Join-Path $env:TEMP 'clareia-instalar-v0.1.0.ps1'; Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/fagnermateus366-lab/clareia/v0.1.0/instalar-github.ps1' -OutFile $instalador -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $instalador
+$instalador = Join-Path $env:TEMP 'clareia-instalar-v0.1.1.ps1'; Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/fagnermateus366-lab/clareia/v0.1.1/instalar-github.ps1' -OutFile $instalador -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $instalador
 ```
 
 O modo local inclui um download de aproximadamente **9,3 GB só para o modelo de

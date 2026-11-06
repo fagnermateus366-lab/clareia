@@ -26,16 +26,16 @@ validada em notebooks de 4 GB.
 Abra o **PowerShell de 64 bits**. Para instalar no modo local:
 
 ```powershell
-$instalador = Join-Path $env:TEMP 'clareia-instalar-v0.1.0.ps1'; Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/fagnermateus366-lab/clareia/v0.1.0/instalar-github.ps1' -OutFile $instalador -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $instalador
+$instalador = Join-Path $env:TEMP 'clareia-instalar-v0.1.1.ps1'; Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/fagnermateus366-lab/clareia/v0.1.1/instalar-github.ps1' -OutFile $instalador -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $instalador
 ```
 
 Para instalar no **modo API**:
 
 ```powershell
-$instalador = Join-Path $env:TEMP 'clareia-instalar-v0.1.0.ps1'; Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/fagnermateus366-lab/clareia/v0.1.0/instalar-github.ps1' -OutFile $instalador -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $instalador -SomenteApi -Destino "$env:LOCALAPPDATA\Clareia-API"
+$instalador = Join-Path $env:TEMP 'clareia-instalar-v0.1.1.ps1'; Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/fagnermateus366-lab/clareia/v0.1.1/instalar-github.ps1' -OutFile $instalador -ErrorAction Stop; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $instalador -SomenteApi -Destino "$env:LOCALAPPDATA\Clareia-API"
 ```
 
-Você também pode baixar e ler o [script da versão](https://github.com/fagnermateus366-lab/clareia/blob/v0.1.0/instalar-github.ps1) antes de executá-lo.
+Você também pode baixar e ler o [script da versão](https://github.com/fagnermateus366-lab/clareia/blob/v0.1.1/instalar-github.ps1) antes de executá-lo.
 O WinGet pode pedir confirmação para instalar dependências. A execução do
 script não altera a política permanente do Windows.
 

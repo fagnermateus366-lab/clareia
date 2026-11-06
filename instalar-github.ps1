@@ -1,11 +1,12 @@
 param(
     [ValidatePattern('^v[0-9]+\.[0-9]+\.[0-9]+$')]
-    [string]$Versao = 'v0.1.0',
+    [string]$Versao = 'v0.1.1',
     [string]$Destino = (Join-Path $env:LOCALAPPDATA 'Clareia-GitHub'),
     [switch]$SomenteApi
 )
 
 $ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
 if ($env:OS -ne 'Windows_NT' -or $env:PROCESSOR_ARCHITECTURE -ne 'AMD64') {
     throw 'Use o PowerShell de 64 bits em um Windows x64.'
 }
@@ -31,7 +32,14 @@ if (Test-Path -LiteralPath $target) {
     try {
         $archive = Join-Path $stage 'clareia.zip'
         Write-Host "Baixando Clareia $Versao ..."
-        Invoke-WebRequest -UseBasicParsing -Uri "https://codeload.github.com/$repository/zip/refs/tags/$Versao" -OutFile $archive
+        $archiveUrl = "https://codeload.github.com/$repository/zip/refs/tags/$Versao"
+        $curl = Get-Command curl.exe -CommandType Application -ErrorAction SilentlyContinue
+        if ($curl) {
+            & $curl.Source --fail --location --silent --show-error --retry 2 --connect-timeout 20 --output $archive $archiveUrl
+            if ($LASTEXITCODE -ne 0) { throw 'O download do Clareia falhou. Verifique a conexao e repita o comando.' }
+        } else {
+            Invoke-WebRequest -UseBasicParsing -Uri $archiveUrl -OutFile $archive
+        }
         $extract = Join-Path $stage 'source'
         Expand-Archive -LiteralPath $archive -DestinationPath $extract
         $roots = @(Get-ChildItem -LiteralPath $extract -Directory)
